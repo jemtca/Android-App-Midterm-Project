@@ -7,6 +7,8 @@ import android.widget.Spinner;
 
 public class MainActivity extends AppCompatActivity {
 
+    private static final String KEY_INDEX = "index";
+
     private Spinner mSpinner;
 
     private ProvinceTerritory[] mProvinceTerritories = new ProvinceTerritory[]{
@@ -27,6 +29,8 @@ public class MainActivity extends AppCompatActivity {
 
     };
 
+    private int mCurrentIndex = 0 ;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,5 +45,21 @@ public class MainActivity extends AppCompatActivity {
         //Apply the adapter to the spinner
         mSpinner.setAdapter(adapter);
 
+        if(savedInstanceState != null){ //if it exists, update mCurrentIndex with the value saved before
+
+            mCurrentIndex = savedInstanceState.getInt(KEY_INDEX, 0); //read data from the bundle
+
+        }
+
     }
+
+    //Save the value of mCurrentIndex across rotation
+    @Override
+    public void onSaveInstanceState(Bundle savedInstanceState){
+
+        super.onSaveInstanceState(savedInstanceState);
+        savedInstanceState.putInt(KEY_INDEX, mCurrentIndex); //method to save additional data to the bundle
+
+    }
+
 }

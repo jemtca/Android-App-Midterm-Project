@@ -12,7 +12,6 @@
 
     <string-array name="spinner">
         <item>Select your province/territory</item>
-        <item>PROVINCES</item>
         <item>Alberta</item>
         <item>British Columbia</item>
         <item>Manitoba</item>
@@ -23,7 +22,6 @@
         <item>Prince Edward Island</item>
         <item>Quebec</item>
         <item>Saskatchewan</item>
-        <item>TERRITORIES </item>
         <item>Northwest Territories</item>
         <item>Nunavut</item>
         <item>Yukon</item>

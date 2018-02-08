@@ -1,7 +1,8 @@
 <resources>
 
     <string name="app_name">MidtermApp</string>
-    <string name="title">Let\'s calculate some taxes!</string>
+    <string name="title">Let\'s calculate general taxes!</string>
+    <string name="input">You have selected:  </string>
     <string name="pst">Provincial Sales Tax</string>
     <string name="gst">Good and Services Tax</string>
     <string name="hst">Harmonized Sales Tax</string>
@@ -9,6 +10,8 @@
     <string name="gst_percent">GTS ( % )</string>
     <string name="hst_percent">HST ( % )</string>
     <string name="total">TOTAL: C$</string>
+
+    <string name="test">Go to the second activity</string>
 
     <string-array name="spinner">
         <item>Select your province/territory</item>

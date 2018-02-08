@@ -2,7 +2,7 @@ package com.bignerdranch.android.midtermapp;
 
 public class ProvinceTerritory {
 
-    private static final float GST = 5.0f; //same pst for all provinces/territories
+    public static final float GST = 5.0f; //same pst for all provinces/territories
 
     private String mName; //name of the province/territory
     private float mGst; //good and services tax

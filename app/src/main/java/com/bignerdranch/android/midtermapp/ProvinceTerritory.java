@@ -2,12 +2,16 @@ package com.bignerdranch.android.midtermapp;
 
 public class ProvinceTerritory {
 
-    public static final float GST = 5.0f; //same pst for all provinces/territories
+    private static final float GOOD_AND_SERVICES_TAX = 5.0f; //same pst for all provinces/territories
+    private static final int GST_PST = 1; //provinces with GST and PST
+    private static final int GST = 2; //provinces with GST
+    private static final int HST = 3; //provinces with HST
 
     private String mName; //name of the province/territory
     private float mGst; //good and services tax
     private float mPst; //provincial sales tax
     private float mHst; //harmonized sales tax
+    private int mKindOfTaxes;
 
     public ProvinceTerritory(String name, float pst, float hst){
 
@@ -16,18 +20,21 @@ public class ProvinceTerritory {
             setName(name);
             setPst(pst);
             setGst();
+            setKindOfTaxes(GST_PST);
 
         }
         else if(pst == 0 && hst == 0){
 
             setName(name);
             setGst();
+            setKindOfTaxes(GST);
 
         }
         else{
 
             setName(name);
             setHst(hst);
+            setKindOfTaxes(HST);
 
         }
 
@@ -53,7 +60,7 @@ public class ProvinceTerritory {
 
     public final void setGst(){
 
-        this.mGst = GST;
+        this.mGst = GOOD_AND_SERVICES_TAX;
 
     }
 
@@ -79,6 +86,18 @@ public class ProvinceTerritory {
     public final void setHst(float hst){
 
         this.mHst = hst;
+
+    }
+
+    public int getKindOfTaxes() {
+
+        return mKindOfTaxes;
+
+    }
+
+    public void setKindOfTaxes(int kindOfTaxes) {
+
+        mKindOfTaxes = kindOfTaxes;
 
     }
 

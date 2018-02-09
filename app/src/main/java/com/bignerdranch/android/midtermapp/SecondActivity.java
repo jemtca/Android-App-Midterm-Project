@@ -9,6 +9,8 @@ import android.text.TextWatcher;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import java.text.DecimalFormat;
+
 public class SecondActivity extends AppCompatActivity {
 
     private static final String EXTRA_GET_TAXES = "com.bignerdranch.android.midtermapp.get_taxes";
@@ -106,8 +108,10 @@ public class SecondActivity extends AppCompatActivity {
 
     private float calculateTotal(float amount) { //show only two or three decimals
 
-        float gts = amount * 0.05f;
-        float pst = amount * 0.07f;
+        //check if gts or gts and pst or hst
+
+        float gts = (amount * mProvinceTerritory.getGst()) / 100;
+        float pst = (amount * mProvinceTerritory.getPst()) / 100;
 
         return amount + gts + pst;
 

@@ -12,14 +12,10 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
-    //private static final String KEY_INDEX = "index";
-
     private Spinner mSpinner;
-    private Button mTestButton;
+    //private Button mTestButton;
 
     private ProvincesTerritoriesArray mProvincesTerritoriesArray;
-
-    //private int mCurrentIndex = 0 ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,47 +37,35 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         //method to go to the second activity once a item was selected
         mSpinner.setOnItemSelectedListener(this);
 
-
-
+        /*
+        //button to test before using the spinner
         mTestButton = (Button) findViewById(R.id.test_button); //getting the reference
         mTestButton.setOnClickListener(new View.OnClickListener() { //setting the listener
             @Override
             public void onClick(View v) {
 
                 //start second activity
-                int index = getProvinceTerritoryIndex("Quebec");
+                int index = getProvinceTerritoryIndex("Alberta");
                 Intent intent = SecondActivity.newIntent(MainActivity.this, index);
                 startActivity(intent);
 
             }
         });
-
-        /*if(savedInstanceState != null){ //if it exists, update mCurrentIndex with the value saved before
-
-            mCurrentIndex = savedInstanceState.getInt(KEY_INDEX, 0); //read data from the bundle
-
-        }*/
+        */
 
     }
-
-    //Save the value of mCurrentIndex across rotation
-    /*@Override
-    public void onSaveInstanceState(Bundle savedInstanceState){
-
-        super.onSaveInstanceState(savedInstanceState);
-        savedInstanceState.putInt(KEY_INDEX, mCurrentIndex); //method to save additional data to the bundle
-
-    }*/
 
     //method from AdapterView.OnItemSelectedListener interface
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int pos, long id){
 
+        /*
         // On selecting a spinner item
         String item = parent.getItemAtPosition(pos).toString();
 
         // Showing selected spinner item
         Toast.makeText(parent.getContext(), "Selected: " + item + "(" +id + " " + pos + ")", Toast.LENGTH_LONG).show();
+        */
 
         int index;
         Intent intent;
@@ -221,7 +205,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     //method to find the index of a specific province (name) inside the array of provinces
     private int getProvinceTerritoryIndex(String name){
 
-        int index = 0;
+        int index = -1;
         boolean found = false;
 
         for(int i = 0; i < mProvincesTerritoriesArray.getProvincesTerritories().length && !found; i++){

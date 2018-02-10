@@ -9,8 +9,6 @@ import android.text.TextWatcher;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import java.text.DecimalFormat;
-
 public class SecondActivity extends AppCompatActivity {
 
     private static final String EXTRA_GET_TAXES = "com.bignerdranch.android.midtermapp.get_taxes";
@@ -23,7 +21,10 @@ public class SecondActivity extends AppCompatActivity {
     private TextView mPstTextView;
     private TextView mGstTextView;
     private TextView mHstTextView;
-    private TextView mTotalTextView;
+    private TextView mLiveGstTextView;
+    private TextView mLivePstTextView;
+    private TextView mLiveHstTextView;
+    private TextView mLiveTotalTextView;
 
     //only this activity needs to know the implementation details of what expects as extras on its intent
     public static Intent newIntent(Context packageContext, int index) {
@@ -60,7 +61,10 @@ public class SecondActivity extends AppCompatActivity {
         mHstTextView = (TextView) findViewById(R.id.hts);
         mHstTextView.setText(String.valueOf(mProvinceTerritory.getHst()));
 
-        mTotalTextView = (TextView) findViewById(R.id.total);
+        mLiveGstTextView = (TextView) findViewById(R.id.live_gst);
+        mLivePstTextView = (TextView) findViewById(R.id.live_pst);
+        mLiveHstTextView = (TextView) findViewById(R.id.live_hst);
+        mLiveTotalTextView = (TextView) findViewById(R.id.total);
 
         mEditText = (EditText) findViewById(R.id.amount);
         mEditText.addTextChangedListener(new TextWatcher() {
@@ -78,12 +82,48 @@ public class SecondActivity extends AppCompatActivity {
                 if (!s.toString().isEmpty()) {
 
                     float amount = Float.parseFloat(s.toString());
-                    float tax = calculateTotal(amount);
-                    mTotalTextView.setText(String.valueOf(tax));
+
+                    if(mProvinceTerritory.getKindOfTaxes() == 1) { //showing gst and pst
+
+                        float gst = getGTS(amount);
+                        mLiveGstTextView.setText(String.valueOf(gst));
+
+                        float pst = getPST(amount);
+                        mLivePstTextView.setText(String.valueOf(pst));
+
+                        mLiveHstTextView.setText("0.0");
+
+                    }
+                    else if(mProvinceTerritory.getKindOfTaxes() == 2){ //only showing gst
+
+                        mLivePstTextView.setText("0.0");
+
+                        float gst = getGTS(amount);
+                        mLiveGstTextView.setText(String.valueOf(gst));
+
+                        mLiveHstTextView.setText("0.0");
+
+                    }
+
+                    else if(mProvinceTerritory.getKindOfTaxes() == 3){ //only showing hst
+
+                        mLivePstTextView.setText("0.0");
+                        mLiveGstTextView.setText("0.0");
+
+                        float hst = getHST(amount);
+                        mLiveHstTextView.setText(String.valueOf(hst));
+
+                    }
+
+                    float taxes = getTotal(amount);
+                    mLiveTotalTextView.setText(String.valueOf(taxes));
 
                 } else {
 
-                    mTotalTextView.setText("");
+                    mLivePstTextView.setText("");
+                    mLiveGstTextView.setText("");
+                    mLiveHstTextView.setText("");
+                    mLiveTotalTextView.setText("");
 
                 }
 
@@ -106,14 +146,52 @@ public class SecondActivity extends AppCompatActivity {
 
     }
 
-    private float calculateTotal(float amount) { //show only two or three decimals
+    private float getPST(float amount){
 
-        //check if gts or gts and pst or hst
-
-        float gts = (amount * mProvinceTerritory.getGst()) / 100;
         float pst = (amount * mProvinceTerritory.getPst()) / 100;
 
-        return amount + gts + pst;
+        return Float.parseFloat(String.format("%.2f", pst));
+
+    }
+
+    private float getGTS(float amount){
+
+        float gst = (amount * mProvinceTerritory.getGst()) / 100;
+
+        return Float.parseFloat(String.format("%.2f", gst));
+
+    }
+
+    private float getHST(float amount){
+
+        float hst = (amount * mProvinceTerritory.getHst()) / 100;
+
+        return Float.parseFloat(String.format("%.2f", hst));
+
+    }
+
+    private float getTotal(float amount) {
+
+        float total = -1;
+
+        if(mProvinceTerritory.getKindOfTaxes() == 1){ //provinces/territories with gst and pst
+
+            total = amount + getGTS(amount) + getPST(amount);
+
+        }
+        else if(mProvinceTerritory.getKindOfTaxes() == 2){ //provinces/territories with only gst
+
+            total = amount + getGTS(amount);
+
+        }
+
+        else if(mProvinceTerritory.getKindOfTaxes() == 3){ //provinces/territories with hst
+
+            total = amount + getHST(amount);
+
+        }
+
+        return Float.parseFloat(String.format("%.2f", total));
 
     }
 

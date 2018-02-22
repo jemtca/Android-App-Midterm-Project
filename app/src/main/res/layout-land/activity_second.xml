@@ -7,7 +7,6 @@
     android:layout_height="match_parent">
 
     <TextView
-        android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="50dp"
@@ -37,7 +36,9 @@
         android:layout_marginEnd="40dp"
         android:layout_marginStart="40dp"
         android:layout_marginTop="60dp"
+        android:textSize="20dp"
         android:inputType="numberDecimal"
+        android:maxLength="6"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.501"
         app:layout_constraintStart_toStartOf="parent"
@@ -45,6 +46,7 @@
         tools:text="amount" />
 
     <TextView
+        android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="100dp"
@@ -58,19 +60,20 @@
         android:id="@+id/live_pst"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="40dp"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="124dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.579"
-        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginEnd="5dp"
+        android:layout_marginStart="180dp"
+        android:layout_marginTop="120dp"
+        android:textSize="18dp"
+        app:layout_constraintEnd_toStartOf="@+id/textView6"
+        app:layout_constraintStart_toStartOf="@+id/textView4"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="live pst " />
 
     <TextView
+        android:id="@+id/textView6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="160dp"
+        android:layout_marginEnd="180dp"
         android:layout_marginTop="120dp"
         android:text="@string/pst_percent"
         android:textSize="18dp"
@@ -81,14 +84,17 @@
         android:id="@+id/pst"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="130dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginStart="5dp"
         android:layout_marginTop="120dp"
         android:textSize="18dp"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/textView8"
+        app:layout_constraintStart_toEndOf="@+id/textView6"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="pst" />
 
     <TextView
+        android:id="@+id/textView8"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="100dp"
@@ -99,6 +105,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
+        android:id="@+id/textView9"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="100dp"
@@ -112,19 +119,20 @@
         android:id="@+id/live_gst"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="40dp"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="164dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.575"
-        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginEnd="5dp"
+        android:layout_marginStart="180dp"
+        android:layout_marginTop="160dp"
+        android:textSize="18dp"
+        app:layout_constraintEnd_toStartOf="@+id/textView11"
+        app:layout_constraintStart_toStartOf="@+id/textView9"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="live gst" />
 
     <TextView
+        android:id="@+id/textView11"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="160dp"
+        android:layout_marginEnd="180dp"
         android:layout_marginTop="160dp"
         android:text="@string/gst_percent"
         android:textSize="18dp"
@@ -135,14 +143,17 @@
         android:id="@+id/gts"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="130dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginStart="5dp"
         android:layout_marginTop="160dp"
         android:textSize="18dp"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/textView13"
+        app:layout_constraintStart_toEndOf="@+id/textView11"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="gts" />
 
     <TextView
+        android:id="@+id/textView13"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="100dp"
@@ -153,6 +164,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
+        android:id="@+id/textView14"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="100dp"
@@ -166,20 +178,20 @@
         android:id="@+id/live_hst"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="40dp"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="204dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.574"
-        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginEnd="5dp"
+        android:layout_marginStart="180dp"
+        android:layout_marginTop="200dp"
+        android:textSize="18dp"
+        app:layout_constraintEnd_toStartOf="@+id/textView16"
+        app:layout_constraintStart_toStartOf="@+id/textView14"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="live hst" />
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/textView16"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="160dp"
+        android:layout_marginEnd="180dp"
         android:layout_marginTop="200dp"
         android:text="@string/hst_percent"
         android:textSize="18dp"
@@ -190,14 +202,17 @@
         android:id="@+id/hts"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="130dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginStart="5dp"
         android:layout_marginTop="200dp"
         android:textSize="18dp"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/textView18"
+        app:layout_constraintStart_toEndOf="@+id/textView16"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="hst" />
 
     <TextView
+        android:id="@+id/textView18"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="100dp"
@@ -214,7 +229,7 @@
         android:layout_marginTop="270dp"
         android:text="@string/total"
         android:textColor="@android:color/black"
-        android:textSize="26dp"
+        android:textSize="28dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -225,7 +240,7 @@
         android:layout_marginEnd="170dp"
         android:layout_marginTop="270dp"
         android:textColor="@android:color/holo_green_dark"
-        android:textSize="26dp"
+        android:textSize="28dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="total" />
